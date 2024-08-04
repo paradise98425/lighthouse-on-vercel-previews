@@ -1,4 +1,4 @@
-# add comment 
+# Plugin resource changedßßßß
 name: Vercel Preview URL Lighthouse Audit
 
 permissions:
@@ -25,9 +25,9 @@ jobs:
             Running Lighthouse audit...
       - name: Capture Vercel preview URL
         id: vercel_preview_url
-        uses: zentered/vercel-preview-url@v1.3.0
+        uses: aaimio/vercel-preview-url-action@v2.2.0
         with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
       - uses: actions/checkout@v4
       - name: Audit preview URL with Lighthouse
         id: lighthouse_audit
