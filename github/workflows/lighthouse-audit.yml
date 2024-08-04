@@ -1,8 +1,12 @@
 name: Vercel Preview URL Lighthouse Audit
-on: [pull_request]
+
+on:
+  issue_comment:
+    types: [edited]
+
 jobs:
   generate_lighthouse_audit:
-    timeout_minutes: 30
+    timeout-minutes: 30
     runs-on: ubuntu-latest
     steps:
       - name: Add comment to PR
@@ -10,11 +14,11 @@ jobs:
         uses: marocchino/sticky-pull-request-comment@v1
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          number: ${{ github.event.pull_request.number }}
+          number: ${{ github.event.issue.number }}
           header: lighthouse
           message: |
             Running Lighthouse audit...
-        - name: Capture Vercel preview URL
+      - name: Capture Vercel preview URL
         id: vercel_preview_url
         uses: aaron-binary/vercel-preview-url-action@v0.0.3
         with:
@@ -28,7 +32,7 @@ jobs:
             ${{ steps.vercel_preview_url.outputs.vercel_preview_url }}
           uploadArtifacts: true
           temporaryPublicStorage: true
-       - name: Format lighthouse score
+      - name: Format lighthouse score
         id: format_lighthouse_score
         uses: actions/github-script@v3
         with:
