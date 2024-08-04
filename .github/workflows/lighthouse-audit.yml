@@ -1,4 +1,3 @@
-#Also to trigger new build in github actions
 
 name: Vercel Preview URL Lighthouse Audit
 
