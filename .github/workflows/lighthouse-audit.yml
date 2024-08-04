@@ -2,7 +2,7 @@ name: Vercel Preview URL Lighthouse Audit
 
 permissions:
   pull-requests: write
-  contents: read
+  contents: write
 
 on:
   issue_comment:
