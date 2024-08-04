@@ -1,8 +1,10 @@
 name: Vercel Preview URL Lighthouse Audit
 
+permissions:
+  pull-requests: write
+  contents: read
+
 on:
-  pull_request:
-    types: [opened, synchronize, reopened]
   issue_comment:
     types: [edited]
 
